@@ -1,5 +1,5 @@
 import { logger } from "./utils/logger.js";
-import { createApp } from "./utils/app.js";
+import { createApp } from "./app.js";
 
 async function main() {
   const app = createApp();
