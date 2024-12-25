@@ -15,6 +15,9 @@ export const getUsers = async () => {
 export const getUser = async (field: keyof User, value: string, returnError: boolean = true) => {
   const user = await db.query.users.findFirst({
     where: (users, { eq }) => eq(users[field], value),
+    columns: {
+      password: false,
+    },
   });
 
   if (!user && (returnError ?? true)) throw new AppError(404, `${field} not found`);
